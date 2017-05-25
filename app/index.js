@@ -4,12 +4,30 @@ import './index.css';
 
 class App extends React.Component {
 	render() {
-		return(
-			<div>
-				Hello Subratta Welcome To React!
-			</div>
-		);
+		var name = 'Subratta Mohanty';
+    	var friends = ['Devesh Pandit', 'Jaswant Gupta', 'Sagar Daundkar'];
+    	return (
+      		<div>
+        		<h3> Name: {name} </h3>
+        		<ShowList names={friends} />
+      		</div>
+    	);
 	}
+}
+
+class ShowList extends React.Component {
+  render() {
+    return (
+      <div>
+        <h3> Friends </h3>
+        <ul>
+          {this.props.names.map(function(friend, i){
+            return <li key={i}> {friend} </li>;
+          })}
+        </ul>
+      </div>
+    )
+  }
 }
 
 ReactDOM.render(
